@@ -1,0 +1,27 @@
+{
+  "name": "purescript-aws-encryption-sdk",
+  "version": "0.1.0",
+  "description": "Purescript wrapper for aws encryption sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HivemindTechnologies/purescript-aws-encryption-sdk.git"
+  },
+  "author": "Hivemind Technologies AG",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/HivemindTechnologies/purescript-aws-encryption-sdk/issues"
+  },
+  "homepage": "https://github.com/HivemindTechnologies/purescript-aws-encryption-sdk#readme",
+  "devDependencies": {
+    "purescript": "^0.13.8",
+    "purty": "^6.3.0",
+    "spago": "^0.19.0"
+  },
+  "dependencies": {
+    "@aws-crypto/client-node": "^2.0.0"
+  }
+}
