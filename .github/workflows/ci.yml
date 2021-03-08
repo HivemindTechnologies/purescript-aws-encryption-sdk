@@ -29,4 +29,7 @@ jobs:
             output
       - run: spago build
 
+      - name: Install test dependencies
+        run: npm install
+
       - run: spago test --no-install
