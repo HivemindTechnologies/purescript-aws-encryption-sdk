@@ -1,4 +1,14 @@
-module AWS.Crypto.Crypto where
+module AWS.Crypto.Crypto
+  ( KmsKeyring
+  , Arn(..)
+  , Client
+  , makeClient
+  , makeKeyring
+  , EncryptionResult
+  , encrypt
+  , DecryptionResult
+  , decrypt
+  ) where
 
 import Prelude
 import Control.Promise (Promise, toAffE)
@@ -34,7 +44,7 @@ foreign import encryptImpl :: forall a. Fn4 Client KmsKeyring a String (Effect (
 type EncryptionResult
   = { ciphertext :: String }
 
-encrypt :: forall a. Client -> KmsKeyring -> a -> String  -> Aff EncryptionResult
+encrypt :: forall a. Client -> KmsKeyring -> a -> String -> Aff EncryptionResult
 encrypt client keyring context plaintext = runFn4 encryptImpl client keyring context plaintext # toAffE >>= convert
   where
   convert :: InternalEncryptionResult -> Aff EncryptionResult
