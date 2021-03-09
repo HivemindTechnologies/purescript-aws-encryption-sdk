@@ -1,8 +1,4 @@
-{-
-Welcome to a Spago project!
-You can edit this file as you like.
--}
-{ name = "my-project"
+{ name = "aws-encryption-sdk"
 , dependencies =
   [ "aff-promise"
   , "console"
@@ -14,5 +10,7 @@ You can edit this file as you like.
   , "spec-discovery"
   ]
 , packages = ./packages.dhall
+, license = "Apache-2.0"
+, repository = "https://github.com/HivemindTechnologies/purescript-aws-encryption-sdk.git"
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
 }
