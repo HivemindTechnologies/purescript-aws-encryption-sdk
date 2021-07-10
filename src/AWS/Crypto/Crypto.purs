@@ -39,10 +39,10 @@ foreign import data Client :: Type
 
 foreign import makeClient :: Effect Client
 
-foreign import makeKeyringImpl :: Fn2 String (Array String) (Effect KmsKeyring)
+foreign import makeKeyringImpl :: Fn1 String (Effect KmsKeyring)
 
-makeKeyring :: Arn -> Array Arn -> Effect KmsKeyring
-makeKeyring (Arn generatorKeyId) keyIds = runFn2 makeKeyringImpl generatorKeyId $ map (un Arn) keyIds
+makeKeyring :: Arn -> Effect KmsKeyring
+makeKeyring (Arn generatorKeyId) = runFn1 makeKeyringImpl generatorKeyId
 
 type InternalEncryptionResult
   = { result :: Buffer }

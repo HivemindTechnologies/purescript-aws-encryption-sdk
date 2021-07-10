@@ -16,7 +16,6 @@ spec =
           liftEffect
             $ makeKeyring
                 (Arn "arn:aws:kms:<<REGION>>:<<ACCOUNT>>:key/<<KEY_ID>>")
-                []
         let
           testData = "some-data"
         encrypted :: EncryptionResult <- encrypt client (Keyring keyring) {} testData
@@ -29,7 +28,6 @@ spec =
           liftEffect
             $ makeKeyring
                 (Arn "arn:aws:kms:<<REGION>>:<<ACCOUNT>>:key/<<KEY_ID>>")
-                []
         cache <- liftEffect $ makeCache 100
         cacheManager <- liftEffect $ getCachingManager keyring cache (60*1000)
         let

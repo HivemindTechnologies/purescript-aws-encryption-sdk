@@ -6,7 +6,7 @@ exports.makeClient = () => crypto.buildClient(
   crypto.CommitmentPolicy.REQUIRE_ENCRYPT_REQUIRE_DECRYPT
 )
 
-exports.makeKeyringImpl = (generatorKeyId, keyIds) => () => new crypto.KmsKeyringNode({ generatorKeyId, keyIds })
+exports.makeKeyringImpl = (generatorKeyId) => () => new crypto.KmsKeyringNode({ generatorKeyId })
 
 exports.encryptImpl = (client, keyring, context, plaintext) => () => client.encrypt(keyring, plaintext, {
   encryptionContext: context,
