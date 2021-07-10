@@ -18,6 +18,6 @@ exports.makeCacheImpl = (capacity) => () => crypto.getLocalCryptographicMaterial
 
 exports.getCachingManagerImpl = (keyring, cache, maxAge) => () => new crypto.NodeCachingMaterialsManager({
   backingMaterials: keyring,
-  cache,
-  maxAge,
+  cache: cache,
+  maxAge: maxAge,
 })
